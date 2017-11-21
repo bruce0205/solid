@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="/favicon.jpeg">
+
+    <title>SOLID - Bootstrap 3 Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script src="/javascripts/photo-gallery.js"></script>
+    <script src="//cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script>
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<style>
+    ul {
+        padding: 0 0 0 0;
+        margin: 0 0 0 0;
+    }
+
+    ul li {
+        list-style: none;
+        margin-bottom: 25px;
+    }
+
+    ul li img {
+        cursor: pointer;
+    }
+
+    .modal-body {
+        padding: 5px !important;
+    }
+
+    .modal-content {
+        border-radius: 0;
+    }
+
+    .modal-dialog img {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .controls {
+        width: 50px;
+        display: block;
+        font-size: 11px;
+        padding-top: 8px;
+        font-weight: bold;
+    }
+
+    .next {
+        float: right;
+        text-align: right;
+    }
+
+    /*override modal for demo only*/
+
+    .modal-dialog {
+        max-width: 900px;
+        padding-top: 90px;
+    }
+
+    @media screen and (min-width: 768px) {
+        .modal-dialog {
+            width: 500px;
+            padding-top: 90px;
+        }
+    }
+</style>
+
+<body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">SOLID.</a>
+            </div>
+            <div class="navbar-collapse collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="about.html">ABOUT</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">CONTACT</a>
+                    </li>
+                    <li class="dropdown active">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">PAGES
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="blog.html">BLOG</a>
+                            </li>
+                            <li>
+                                <a href="single-post.html">SINGLE POST</a>
+                            </li>
+                            <li>
+                                <a href="portfolio.html">PORTFOLIO</a>
+                            </li>
+                            <li>
+                                <a href="single-project.html">SINGLE PROJECT</a>
+                            </li>
+                            <li>
+                                <a href="gallery">GALLERY</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="https://www.dropbox.com/oauth2/authorize?client_id=puv3gh8zqeoowof&response_type=token&redirect_uri=http://localhost:3000/gallery">LOGIN</a>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </div>
+
+
+    <!-- *****************************************************************************************************************
+	 BLUE WRAP
+	 ***************************************************************************************************************** -->
+
+
+    <!-- *****************************************************************************************************************
+	 TITLE & CONTENT
+	 ***************************************************************************************************************** -->
+
+    <div class="container mtb">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 centered">
+                <h2>We create awesome designs to standout your site or product. Check some of our latest works.</h2>
+                <br>
+                <div class="hline"></div>
+            </div>
+        </div>
+    </div>
+    <! --/container -->
+    <div class="container" style="margin-top:-20px;margin-bottom:50px">
+
+        <ul id="galleryContent" class="row">
+
+        </ul>
+    </div>
+    <!-- /container -->
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+
+
+
+    <!-- *****************************************************************************************************************
+	 FOOTER
+	 ***************************************************************************************************************** -->
+    <div id="footerwrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h4>About</h4>
+                    <div class="hline-w"></div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's
+                        standard dummy text ever since the 1500s.</p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Social Links</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                        <a href="#">
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-tumblr"></i>
+                        </a>
+                    </p>
+                </div>
+                <div class="col-lg-4">
+                    <h4>Our Bunker</h4>
+                    <div class="hline-w"></div>
+                    <p>
+                        Some Ave, 987,
+                        <br/> 23890, New York,
+                        <br/> United States.
+                        <br/>
+                    </p>
+                </div>
+
+            </div>
+            <! --/row -->
+        </div>
+        <! --/container -->
+    </div>
+    <! --/footerwrap -->
+
+    <script>
+        var accessToken = '';
+        async function fetchGank(accessToken) {
+            try {
+                console.log('fetchGank() invoke');
+                let res = await fetch('/gallery/list', {
+                    method: 'POST',
+                    headers: new Headers({
+                        'Content-Type': 'application/json'
+                    }),
+                    body: JSON.stringify({
+                        "accessToken": accessToken
+                    })
+                });
+                if (res.ok) {
+                    // 等待 parse json
+                    let result = await res.json();
+                    jsonHandler(result);
+                } else {
+                    let text = await res.text();
+                    console.log(text);
+                }
+            } catch (e) {
+                console.log(e);
+            }
+        }
+
+        function jsonHandler(result) {
+            let data = result.data;
+
+            for (var i = 0, l = data.length; i < l; i++) {
+                let li = $('<li>').addClass('col-lg-2 col-md-2 col-sm-3 col-xs-4');
+                let img = $('<img>').addClass('img-responsive').attr('src', data[i]);
+                $("#galleryContent").append(li.append(img));
+                // TODO 將addModalEvent改在這裡
+            }
+            addImgEvent();
+        }
+
+        function addImgEvent() {
+            $('li img').on('click', function () {
+                var src = $(this).attr('src');
+                var img = '<img src="' + src + '" class="img-responsive"/>';
+
+                //start of new code new code
+                var index = $(this).parent('li').index();
+
+                var html = '';
+                html += img;
+                html += '<div style="height:25px;clear:both;display:block;">';
+                html += '<a class="controls next" href="' + (index + 2) + '">next &raquo;</a>';
+                html += '<a class="controls previous" href="' + (index) + '">&laquo; prev</a>';
+                html += '</div>';
+
+                $('#myModal').modal();
+                $('#myModal').on('shown.bs.modal', function () {
+                    $('#myModal .modal-body').html(html);
+                    //new code
+                    $('a.controls').trigger('click');
+                })
+                $('#myModal').on('hidden.bs.modal', function () {
+                    $('#myModal .modal-body').html('');
+                });
+            });
+        }
+
+        var buildWebsocket = (accessToken) => {
+            var connection = new WebSocket('ws://localhost:3000/ws?accessToken=' + accessToken, ['soap', 'xmpp']);
+            // When the connection is open, send some data to the server
+            connection.onopen = function () {
+                connection.send('renderV2'); // Send the message 'render' to the server
+            };
+
+            // Log errors
+            connection.onerror = function (error) {
+                console.log('WebSocket Error ' + error);
+            };
+
+            // Log messages from the server
+            connection.onmessage = function (e) {
+                let result = JSON.parse(e.data);
+                if (result.success) {
+                    jsonHandler(result);
+                }
+            };
+        }
+
+        $(document).ready(function () {
+            let startPosition = window.location.hash.indexOf('=');
+            let endPosition = window.location.hash.indexOf('&token_type');
+            accessToken = window.location.hash.substring(startPosition + 1, endPosition);
+            // if (accessToken) fetchGank(accessToken);
+            if (accessToken) buildWebsocket(accessToken);
+        });
+
+    </script>
+</body>
+
+</html>
