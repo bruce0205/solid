@@ -137,7 +137,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="https://www.dropbox.com/oauth2/authorize?client_id=puv3gh8zqeoowof&response_type=token&redirect_uri=http://localhost:3000/gallery">LOGIN</a>
+                        <a href="https://www.dropbox.com/oauth2/authorize?client_id=puv3gh8zqeoowof&response_type=token&redirect_uri=http://localhost:3456/gallery">LOGIN</a>
                     </li>
                 </ul>
             </div>
@@ -305,7 +305,7 @@
         }
 
         var buildWebsocket = (accessToken) => {
-            var connection = new WebSocket('ws://localhost:3000/ws?accessToken=' + accessToken, ['soap', 'xmpp']);
+            var connection = new WebSocket('ws://localhost:3456/ws?accessToken=' + accessToken, ['soap', 'xmpp']);
             // When the connection is open, send some data to the server
             connection.onopen = function () {
                 connection.send('renderV2'); // Send the message 'render' to the server
