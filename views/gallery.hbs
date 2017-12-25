@@ -17,7 +17,7 @@
     <!-- Custom styles for this template -->
     <link href="/stylesheets/style.css" rel="stylesheet">
     <link href="/stylesheets/font-awesome.min.css" rel="stylesheet">
-    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <script src="/javascripts/photo-gallery.js"></script>
     <script src="//cdn.polyfill.io/v2/polyfill.min.js?features=fetch"></script>
@@ -305,7 +305,7 @@
         }
 
         var buildWebsocket = (accessToken) => {
-            var connection = new WebSocket('ws://localhost:3456/ws?accessToken=' + accessToken, ['soap', 'xmpp']);
+            var connection = new WebSocket('wss://solid.meproz.com/ws?accessToken=' + accessToken, ['soap', 'xmpp']);
             // When the connection is open, send some data to the server
             connection.onopen = function () {
                 connection.send('renderV2'); // Send the message 'render' to the server

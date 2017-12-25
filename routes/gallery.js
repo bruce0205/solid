@@ -33,6 +33,9 @@ router.get('/', function (req, res, next) {
     res.render('gallery', { title: 'Gallery' });
 });
 
+/** 
+ * Deprecated 
+ * */
 router.post('/list', async (req, res, next) => {
     try {
         var result = {

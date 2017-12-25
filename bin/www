@@ -10,7 +10,7 @@ var http = require('http');
 var WebSocketServer = require("ws").Server;
 var dropbox = require('../services/dropbox');
 var url = require('url');
-var Client = require('../services/dropbox/Client');
+var DropboxClient = require('../services/dropbox/Client');
 
 /**
  * Get port from environment and store in Express.
@@ -55,7 +55,7 @@ wss.on('connection', async function connection(ws, req) {
     }
     if (message == 'renderV2') {
       var accessToken = location.query.accessToken
-      var client = new Client(accessToken);
+      var client = new DropboxClient(accessToken);
       let list = await client.listFolder('/Gallery');
       for (i = 0; i < list.entries.length; i++) {
         let imageObj = await client.getTemporaryLink(list.entries[i]["path_lower"]);
